@@ -55,9 +55,68 @@ Barra navegacion
     display: inline-flex;
 }
 
+
 .boton:hover {
     color: #ff8800ad;
     border-color: #ff8800ad;
     box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
+}
+
+
+
+.barra_lateral {
+    background-color: aqua;
+    width: 250px;
+    margin: 0 auto;
+	padding: 15px;
+    display: inline-block;
+    
+
+}
+#lista_eventos {
+    width: 750px;
+    margin-right: 570px;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.evento {
+    display: block;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 200;
+    
+}
+
+.evento img{
+    max-width: 200px;
+    padding: 0;
+    margin: 15px;
+}
+
+.evento img:hover {
+    max-width: 205px;
+    transition: all 0.4s ease 0s;
+}
+
+.evento span{
+    /*font-family: "Arial", sans-serif;*/
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+
+footer {
+    text-align: center;
+    border-top: #000000 1px solid;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    display: inline-block;
+    float: none;
 }
