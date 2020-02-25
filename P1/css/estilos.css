@@ -76,7 +76,7 @@ Barra navegacion
 }
 #lista_eventos {
     width: 750px;
-    margin-right: 570px;
+    margin-right: 30%;
     float: right;
     display: flex;
     align-items: center;
