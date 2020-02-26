@@ -6,6 +6,10 @@ html, body {
     color: black;
 }
 
+h5 {
+    font-weight: normal;
+}
+
 /*
 PORTADA:
 */
@@ -69,53 +73,76 @@ Barra navegacion
 
 
 .barra_lateral {
+    margin: 2%;
     background-color: white;
-    border: 3px solid #b33909;
-    width: 250px;
-    height: 600px;
-    margin: 0 auto;
-	
-    display: inline-block;
+    border: 3px solid #fc6b34;
+    width: 15%;
+    min-height: 400px;
+    text-align: center;
+    padding: 0;
+    float: left;
     
 
 }
+
+.barra_lateral h2 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: #fc6b34;
+    color: white;
+} 
+
+.barra_lateral a:hover {
+    color: #fc6b34;
+}
 #lista_eventos {
-    width: 750px;
+    /*
     margin-right: 30%;
+    float: center;
+    display: flex;*/
+    width: 75%;
     float: right;
-    display: flex;
+    
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    
     
 }
 
 .evento {
-    display: block;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    width: 200;
+    width: 30%;
+    float: left;
+   
+    text-align: center;
     
 }
 
 .evento img{
-    max-width: 200px;
+    width: 50%;
     padding: 0;
-    margin: 15px;
+    margin: 10%;
+    
 }
 
+/*
 .evento img:hover {
-    max-width: 205px;
+    width: 55%;
+    margin-bottom: 5%;
     transition: all 0.4s ease 0s;
 }
+*/
 
 .evento span{
-    /*font-family: "Arial", sans-serif;*/
     display: block;
     text-align: center;
     font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    
+    font-family: "Arial", Helvetica, sans-serif;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: black;
 }
 
 footer {
@@ -128,4 +155,50 @@ footer {
     padding-bottom: 2rem;
     display: inline-block;
     float: none;
+}
+
+
+/*
+EVENTO.HTML
+*/
+
+.info  {
+    width: 75%;
+    float: left;
+    padding: 0%;
+}
+
+.informacion_evento {
+    width: 45%;
+    margin: 0%;
+    padding: 2%;
+    float: left;
+}
+
+.informacion_evento h1 {
+    font-size: 300%;
+}
+
+.informacion_evento h5 {
+    font-size: 130%;
+}
+
+.fotos_evento {
+    width: 45%;
+    padding: 2%;
+    margin: 0%;
+    float: left;
+}
+
+#logo_evento {
+    width: 80%;
+    float: left;
+}
+
+.imagen_evento {
+    width: 80%;
+}
+
+.social_button {
+    width: 10%;
 }
