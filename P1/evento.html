@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>FESTIVALEROS</title>
         <link rel="stylesheet" href="css/estilos.css" type="text/css">
+        <script src="js/miscript.js"></script>
     </head>
     <body>
         <main>
@@ -26,6 +27,35 @@
         </main>
 
         <div id="principal">
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div id="comentarios_">
+                    COMENTARIOS
+                </div>
+                <div class="form_comentario">
+                    <form action="/my-handling-form-page" method="post">
+                           <label for="name">Nombre</label>
+                           <input type="text" id="name" name="user_name">
+
+                           <label for="mail">Email</label>
+                           <input type="email" id="mail" name="user_mail">
+
+                           <label for="msg">Comentario</label>
+                           <textarea id="msg" name="user_message"></textarea>
+
+                           <button type="submit">Envíe su mensaje</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="boton_comentarios" onclick="openNav()">
+                <img src="https://img.icons8.com/small/452/comments.png" alt="Comentarios">
+            </div>
+
+            
+
             <aside class="barra_lateral">
                 
                     <h2>LINK OFICIALES</h2>
