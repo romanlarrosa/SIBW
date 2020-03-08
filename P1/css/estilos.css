@@ -251,12 +251,40 @@ EVENTO.HTML
 
 #comentarios_ {
     text-align: center;
-    border: 1px solid white;
-    border-radius: 5px;
     width: 60%;
     margin-left: 20%;
+    font-weight: bolder;
 }
 
+.lista_comentarios{
+    overflow-y:auto;
+    max-height: 50%;
+
+}
+
+.comentario {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 80%;
+    margin: 3%;
+    margin-left: 10%;
+}
+.texto_comentario {
+    text-align: left;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #777777;
+    border-radius: 5px;
+}
+
+.fecha_comentario {
+    text-align: right;
+    margin-right: 5%;
+    font-style: italic;
+    font-size: small;
+}
 .form_comentario {
     position: absolute;
     bottom: 0;
@@ -285,3 +313,4 @@ EVENTO.HTML
   /* Esquema del formulario */
   padding: 1em;
 }
+
