@@ -15,13 +15,11 @@ function addComentario(event){
   var mail = document.getElementById('mail');
   var comentario = document.getElementById('msg');
 
-  if (vacio(nombre) || vacio(mail) || vacio(comentario)){
+  if (nombre.value.length==0 || mail.value.length==0 || comentario.value.length==0){
     alert("Hay algun campo obligatorio vacio");
-    return false;
   }
   else {
     alert("NO hay ningun error");
-    return false;
   }
 }
 
