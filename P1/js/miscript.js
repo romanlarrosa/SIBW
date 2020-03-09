@@ -26,6 +26,24 @@ function addComentario(event){
   }
 
   //Una vez que comprobamos que estan todos los campos y que el email es correcto, procedemos a insertar el comentario
+  var fecha = (new Date()).toLocaleString('es-ES',{timeZone:'Europe/Madrid'});
+  var lista = document.getElementsByClassName('lista_comentarios');
+
+  lista[0].insertAdjacentHTML('beforeend', "\n" +
+    "<div class=\"comentario\">\n" +
+    "                    <h4>\n" +
+    "                        "+nombre.value+":\n"+
+    "                    </h4>\n" +
+    "                    <p class=\"texto_comentario\">\n" +
+    "                        "+comentario.value+"\n" +
+    "                    </p>\n" +
+    "                    <p class=\"fecha_comentario\">\n" +
+    "                        "+fecha+"\n"+
+    "                    </p>" +
+    "               </div>");
+
+  return false;
+  
 }
 
 function vacio(campo) {
@@ -39,4 +57,56 @@ function vacio(campo) {
 function emailValido(mail) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(mail.value).toLowerCase());
+}
+
+palabraAux = "";
+index = 0;
+var palabras_censuradas = [
+    "estafa",
+    "marina",
+    "prueba",
+    "censura",
+    "pago"
+];
+
+function censurar(event) {
+  //Comprobar cada palabra (cada vez que se pulsa el espacio)
+  var tecla  = String.fromCharCode(event.keyCode).toLowerCase();
+  var re = /[a-zA-Z]/;
+  var mensaje = document.getElementById("msg");
+
+  if(re.test(tecla)){
+    palabraAux += tecla;
+  }
+  else{
+    if(tecla === " " || tecla === "."){
+      compruebaCensura(palabraAux);
+      palabraAux = "";
+    }
+  }
+
+  index = mensaje.value.length;
+}
+
+function compruebaCensura(palabra) {
+  var i;
+  for(i = 0; i< palabras_censuradas.length; i++){
+    if(palabra === palabras_censuradas[i]){
+      censura(palabra);
+    }
+  }
+}
+
+function censura(palabra){
+  var mensaje = document.getElementById("msg");
+  alert("Indice: " + index.value);
+  var aux = "";
+
+  for(var i = 0; i < palabra.length; i++){
+    aux += "*";
+  }
+
+  var nuevomsj = mensaje.value.substring(0, index - mensaje.length) + aux + " ";
+
+  mensaje.value = nuevomsj;
 }

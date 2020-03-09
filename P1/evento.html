@@ -66,7 +66,7 @@
                         <input type="text" id="mail" name="user_mail">
 
                         <label for="msg">Comentario</label>
-                        <textarea id="msg" name="user_message"></textarea>
+                        <textarea id="msg" name="user_message" placeholder="Escribe tu comentario..." onkeyup="censurar(event)"></textarea>
 
                         <input type="button" onclick="addComentario(event)" value="ENVIAR"></input>
                 </div>
