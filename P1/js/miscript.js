@@ -10,6 +10,7 @@ function openNav() {
 
 //Añadir comentario a la lista de comentarios
 function addComentario(event){
+  event.preventDefault();
   var nombre = document.getElementById('name');
   var mail = document.getElementById('mail');
   var comentario = document.getElementById('msg');
@@ -18,29 +19,10 @@ function addComentario(event){
     alert("Hay algun campo obligatorio vacio");
     return false;
   }
-
-  if (emailValido(mail)){
-    alert("E-mail no valido");
+  else {
+    alert("NO hay ningun error");
     return false;
   }
-
-  var fecha = (new Date()).toLocaleString('es-ES',{timeZone:'Europe/Madrid'});
-  var lista = document.getElementsByClassName('lista_comentarios');
-
-  lista[0].insertAdjacentHTML('beforeend', "\n" +
-    "<div class=\"comentario\">\n" +
-    "                    <h4>\n" +
-    "                        "+name.value+":\n"+
-    "                    </h4>\n" +
-    "                    <p class=\"texto_comentario\">\n" +
-    "                        "+comentario.value+"\n" +
-    "                    </p>\n" +
-    "                    <p class=\"fecha_comentario\">\n" +
-    "                        "+date+"\n"+
-    "                    </p>" +
-    "               </div>");
-
-  return false;
 }
 
 function vacio(campo) {
