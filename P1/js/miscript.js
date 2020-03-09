@@ -17,10 +17,15 @@ function addComentario(event){
 
   if (nombre.value.length==0 || mail.value.length==0 || comentario.value.length==0){
     alert("Hay algun campo obligatorio vacio");
+    return false
   }
-  else {
-    alert("NO hay ningun error");
+  
+  if (!emailValido(mail)){
+    alert("Email no valido");
+    return false;
   }
+
+  //Una vez que comprobamos que estan todos los campos y que el email es correcto, procedemos a insertar el comentario
 }
 
 function vacio(campo) {
@@ -33,5 +38,5 @@ function vacio(campo) {
 
 function emailValido(mail) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email.value).toLowerCase());
+  return re.test(String(mail.value).toLowerCase());
 }
