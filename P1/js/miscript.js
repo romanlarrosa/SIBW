@@ -66,7 +66,8 @@ var palabras_censuradas = [
     "marina",
     "prueba",
     "censura",
-    "pago"
+    "pago",
+    "puta"
 ];
 
 function censurar(event) {
@@ -82,6 +83,9 @@ function censurar(event) {
     if(tecla === " " || tecla === "."){
       compruebaCensura(palabraAux);
       palabraAux = "";
+    }
+    if(tecla === 8){
+      palabraAux.length = palabraAux.length - 1;
     }
   }
 
@@ -99,14 +103,14 @@ function compruebaCensura(palabra) {
 
 function censura(palabra){
   var mensaje = document.getElementById("msg");
-  alert("Indice: " + index.value);
   var aux = "";
 
   for(var i = 0; i < palabra.length; i++){
     aux += "*";
   }
 
-  var nuevomsj = mensaje.value.substring(0, index - mensaje.length) + aux + " ";
+  //alert("Subcadena: " + mensaje.value.substring(0, index - palabra.length));
+  var nuevomsj = mensaje.value.substring(0, index - palabra.length) + aux + " ";
 
   mensaje.value = nuevomsj;
 }
