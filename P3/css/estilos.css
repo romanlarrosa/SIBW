@@ -202,3 +202,115 @@ EVENTO.HTML
 .social_button {
     width: 10%;
 }
+
+
+/*
+    PRACTICA 2
+*/
+
+.boton_comentarios {
+    background-color: #fc6b34;
+    outline: none;
+    font-weight: bold;
+    width: 3%;
+    float: right;
+}
+
+.boton_comentarios:hover {
+    background-color: #b33909;
+    transition: all 0.4s ease 0s;
+}
+
+.boton_comentarios img {
+    width: 100%;
+    filter:invert(100%);
+}
+
+.sidenav {
+    height: 100%;
+    color: white;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: black;
+    overflow-x: hidden; 
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    margin-right: 50px;
+    filter: invert(100%);
+}
+
+#comentarios_ {
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    font-weight: bolder;
+}
+
+.lista_comentarios{
+    overflow-y:auto;
+    max-height: 50%;
+
+}
+
+.comentario {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 80%;
+    margin: 3%;
+    margin-left: 10%;
+}
+.texto_comentario {
+    text-align: left;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #777777;
+    border-radius: 5px;
+}
+
+.fecha_comentario {
+    text-align: right;
+    margin-right: 5%;
+    font-style: italic;
+    font-size: small;
+}
+.form_comentario {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 100px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.form_comentario label{
+    width: 100%;
+    display: block;
+}
+
+.form_comentario textarea {
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.form_comentario form {
+    /* Centrar el formulario en la página */
+  margin: 0 auto;
+  /* Esquema del formulario */
+  padding: 1em;
+}
+

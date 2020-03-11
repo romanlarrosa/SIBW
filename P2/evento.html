@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>FESTIVALEROS</title>
         <link rel="stylesheet" href="css/estilos.css" type="text/css">
+        <script src="js/miscript.js"></script>
     </head>
     <body>
         <main>
@@ -26,6 +27,59 @@
         </main>
 
         <div id="principal">
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div id="comentarios_">
+                    COMENTARIOS
+                </div>
+                <section class="lista_comentarios">
+                    <div class="comentario">
+                        <h4>
+                            Antonia Perez:
+                        </h4>
+                        <p class="texto_comentario">
+                            Que ganas tengo de que llegue!
+                        </p>
+                        <p class="fecha_comentario">
+                            04/02/2020 16:56
+                        </p>
+                    </div>
+                    <div class="comentario">
+                        <h4>
+                            Marina Hernandez Bautista:
+                        </h4>
+                        <p class="texto_comentario">
+                            Me he gastado todos mis ahorros en esto espero que valga la pena
+                        </p>
+                        <p class="fecha_comentario">
+                            06/02/2020 21:34
+                        </p>
+                    </div>
+                </section>    
+
+                <div class="form_comentario">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="user_name">
+
+                        <label for="mail">Email</label>
+                        <input type="text" id="mail" name="user_mail">
+
+                        <label for="msg">Comentario</label>
+                        <textarea id="msg" name="user_message" placeholder="Escribe tu comentario..." onkeyup="censurar(event)"></textarea>
+
+                        <input type="button" onclick="addComentario(event)" value="ENVIAR"></input>
+                </div>
+                
+                
+            </div>
+
+            <div class="boton_comentarios" onclick="openNav()">
+                <img src="https://img.icons8.com/small/452/comments.png" alt="Comentarios">
+            </div>
+
+            
+
             <aside class="barra_lateral">
                 
                     <h2>LINK OFICIALES</h2>
