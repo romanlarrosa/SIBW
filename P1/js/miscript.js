@@ -67,7 +67,8 @@ var palabras_censuradas = [
     "prueba",
     "censura",
     "pago",
-    "puta"
+    "deiit",
+    "delegacion"
 ];
 
 function censurar(event) {
@@ -83,9 +84,6 @@ function censurar(event) {
     if(tecla === " " || tecla === "."){
       compruebaCensura(palabraAux);
       palabraAux = "";
-    }
-    if(tecla === 8){
-      palabraAux.length = palabraAux.length - 1;
     }
   }
 
