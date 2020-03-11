@@ -85,6 +85,9 @@ function censurar(event) {
       compruebaCensura(palabraAux);
       palabraAux = "";
     }
+    if(event.keyCode === 8){
+      palabraAux = palabraAux.substring(0, palabraAux.length - 1);
+    }
   }
 
   index = mensaje.value.length;
