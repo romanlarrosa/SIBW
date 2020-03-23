@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>FESTIVALEROS</title>
+        <link rel="stylesheet" href="css/estilos.css" type="text/css">
+    </head>
+    <body>
+        <main>
+            <header>
+                <div>
+                    <a href="portada.html">
+                        <img src="img/logo-festivalero.png" alt="LOGO" id="logo">
+                    </a>
+                </div>
+                <div>
+                    <h1 id="titulo">TODOS TUS FESTIVALES</h1>
+                    <nav id="menu">
+                        <ul >
+                            <a href="portada.html"><li class="boton">HOME</li></a>
+                            <li class="boton"><a>CONTACTO</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        </main>
+
+        <div id="principal">
+            <aside class="barra_lateral">
+                
+                    <h2>LINK OFICIALES</h2>
+                    <a href="https://www.arenalsound.com/">
+                        Arenal Sound
+                    </a>
+                    <br><br>
+                    <a href="https://www.dreambeach.es/">
+                        Dreambeach
+                    </a>
+                    <br><br>
+                    <a href="https://www.granadasound.com/">
+                        Granada Sound
+                    </a>
+                    <br><br>
+                    <a href="https://www.vina-rock.com/">
+                        Viña Rock
+                    </a>
+                
+            </aside>
+
+            {% block contenido %}
+
+            {% endblock %}
+        </div>
+
+        <footer>
+            <p>
+                Copyright FESTIVALEROS &copy; 2020<br>
+                Román Larrosa Lewandowska
+            </p>
+        </footer>
+    </body>
+</html>
