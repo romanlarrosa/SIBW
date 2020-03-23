@@ -1,0 +1,99 @@
+body {
+   background-color: #fff; 
+   background-image: url("../images/coronavirusFondo.jpg");
+   background-position: right bottom; /*Positioning*/
+   background-repeat: no-repeat; /*Prevent showing multiple background images*/
+} 
+
+header {
+  border: 1px solid rgb(0,255,0,.15);
+  border-radius: 4px;
+  padding: 1em;  
+  background-color: rgb(0,255,0,.1);
+}
+
+footer {
+  border: 1px solid rgb(0,0 ,255,.15);
+  border-radius: 4px;
+  padding: 1em;  
+  text-align: center;
+  background-color: rgb(0,0,255,.1);
+}
+
+footer p {
+  font-weight: bold;
+  font-size: .95em;
+}
+
+main {
+  border: 1px solid rgb(255,0,0,.15);
+  border-radius: 4px;
+  padding: 1em;  
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  background-color: rgb(255,0,0,.1);
+}
+
+main::after { /* Clearfix para main */
+  content: "";
+  clear: both;
+  display: table;
+}
+
+p::first-letter {
+  font-size: 175%;
+  color: #cc3333;
+  font-weight: bold;
+}
+
+p {
+  text-indent: 2em; 
+}
+
+.fotoDerecha {
+  float: right;
+  margin: .75em;
+  margin-top: 0;
+  padding: .5em;
+  width: 30%;
+}
+
+.fotoDerecha img {
+  width: 100%;
+  border-radius: .75em;
+}
+
+.resaltado {
+  font-size: 150%;
+  color: #cc3333;
+  font-weight: bold;
+  text-indent: 0em; 
+  
+  text-align: center;
+}
+
+.resaltado::first-letter {
+  font-size: 100%; 
+}
+
+/* Fuente más decente */
+h1 { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif; font-size: 30px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 33px; } 
+
+h2 { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
+
+h3 { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 22px; } 
+
+p { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 22px; } 
+
+figcaption { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 17.6px; 
+  margin-top: 0.5em;
+  text-align: center;
+} 
+
+pre { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5667px; }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

@@ -1,0 +1,30 @@
+{% extends "padre.html" %}
+
+  {% block mensaje %}
+    Página Evento
+  {% endblock %}
+
+  {% block cabecera %}
+    {{ parent() }}
+    
+    <h1>XXXX YYYY ZZZZ</h2>
+  {% endblock %}
+  
+  {% block central %}
+      <figure class="fotoDerecha">
+        <img src="images/papelHigienico.jpg" />
+        
+        <figcaption>Compra lógica en estos días</figcaption>
+      </figure>
+      
+      <h2>{{ nombre }}</h2>
+      
+      <h3>{{ fecha }}</h3>
+      
+      <p>Todos los días a las 20:00 horas aplaudiremos la labor de los sanitarios des nuestros balcones.</p>
+      
+      <p>Únete a la iniciativa.</p>
+      
+      <p class="resaltado">¡Y quédate en tu p******* casa!</p>
+
+  {% endblock %}

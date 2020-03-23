@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SIBW {% block mensaje %}{% endblock %}</title>
+    <link rel="stylesheet" href="styles/style.css">
+
+  </head>
+  <body>
+    <header>
+      {% block cabecera %}
+      <h1>SIBW Coronavirus Extended Edition (CEE)<h1>
+      {% endblock %}
+    </header>
+    
+    <main>
+      {% block central %}
+      
+      <p>Parte central de la plantilla</p>
+      
+      {% endblock %}
+    </main>
+    
+    <footer>
+      <p>&copy; Zerjillo - Marzo 2020</p>
+    </footer>
+  </body>
+</html>
