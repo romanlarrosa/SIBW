@@ -1,0 +1,34 @@
+CREATE table EVENTO(
+    evento int AUTO_INCREMENT primary key,
+    icono varchar(200),
+    nombre varchar(200),
+    contenido text
+);
+
+CREATE table FOTO(
+    foto int AUTO_INCREMENT primary key,
+    direccion varchar(200),
+    evento int,
+    FOREIGN KEY (evento) REFERENCES EVENTO(evento)
+);
+
+create table COMENTARIO(
+    comentario int AUTO_INCREMENT primary key,
+    contenido text,
+    fecha date,
+    user varchar(200),
+    mail varchar(200),
+    evento int,
+    FOREIGN KEY (evento) REFERENCES EVENTO(evento)
+);
+
+
+INSERTS**********************************
+
+INSERT into EVENTO(nombre, icono, contenido) values ('Arenal Sound', 'img/arenal.png', 
+'El festival Arenal Sound es un festival de música independiente que se celebra en la playa El Arenal, en la localidad de Burriana (provincia de Castellón, España), durante la primera semana de agosto desde 2010. 
+Se caracteriza por su gran afluencia de jóvenes y se diferencia de otros festivales por su cercanía a la playa al tener uno de sus escenarios sobre la misma arena. Se ha convertido en uno de los referentes de la temporada estival nacional.
+El festival reúne cada año a jóvenes de toda España que acuden a Burriana para disfrutar de los conciertos de sus artistas favoritos, son ya 10 años de sol y playa al ritmo de la mejor música en directo: 
+por los escenarios del Arenal Sound han pasado grandes artistas nacionales e internacionales como The Cranberries, Scissor Sisters, Metronomy, Kaiser Chiefs, Two Door Cinema Club, Editors, Placebo, Rudimental, Steve Aoki, Martin Garrix, etc.
+Como viene siendo habitual en los últimos años, los abonos para asistir al festival se agotaron en pocas horas. Si no pudiste hacerte con el tuyo, muy atentx porque el jueves 13 de febrero a las 12:00 horas saldrán a la venta las entradas de día. ¡Aún estás a tiempo de asisitir a una de las fiestas del verano! 
+');
