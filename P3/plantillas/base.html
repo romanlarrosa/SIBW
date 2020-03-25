@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>FESTIVALEROS</title>
-        <link rel="stylesheet" href="css/estilos.css" type="text/css">
+        <link rel="stylesheet" href="css/estilos.css{{ endblock }}" type="text/css">
+        <script src="js/miscript.js"></script>
     </head>
     <body>
         <main>
@@ -26,6 +27,9 @@
         </main>
 
         <div id="principal">
+            {% block comentarios %}
+
+            {% endblock %}
             <aside class="barra_lateral">
                 
                     <h2>LINK OFICIALES</h2>

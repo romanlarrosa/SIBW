@@ -2,33 +2,14 @@
 
             {% block contenido %}
             <section id="lista_eventos">
+                {% for event in eventos %}
                 <div class="evento">
-                    <a href="evento.html">
-                        <img src="img/arenal.png">
-                        <span>Arenal Sound</span>
+                    <a href="evento.php?ev={{ event['evento'] }}">
+                        <img src="{{ event['icono'] }}">
+                        <span>{{event['nombre']}}</span>
                     </a>
                 </div>
-
-                <div class="evento">
-                    <a href="evento.html">
-                        <img src="img/dreambeach.jpg">
-                        <span>Dreambeach</span>
-                    </a>
-                </div>
-
-                <div class="evento">
-                    <a href="evento.html">
-                        <img src="img/granada_sound.jpg">
-                        <span>Granada Sound</span>
-                    </a>
-                </div>
-
-                <div class="evento">
-                    <a href="evento.html">
-                        <img src="img/viña.jfif">
-                        <span>Viña Rock</span>
-                    </a>
-                </div>
+                {% endfor %}
             </section>
             {% endblock %}
         

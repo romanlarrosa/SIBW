@@ -1,18 +1,21 @@
 <?php
     require_once "vendor/autoload.php"; 
+    include include("bd.php"); 
     
     $loader = new \Twig\Loader\FilesystemLoader('plantillas');
     $twig = new \Twig\Environment($loader);
 
     
-    
-    $mysqli = new mysqli("localhost", "web", "web", "SIBW");
-    if ($mysqli->connect_errno) {
-        print ("FALLO AL CONECTAR: " . $mysqli->connect_error);
-    }
-    
+    $resultado = getAllEventos();
+    $eventos = array();
 
-    echo $twig->render('portada.html', []);
+
+    while($res = $resultado->fetch_assoc()) {
+        $eventos[] = $res;
+    }
+
+
+    echo $twig->render('portada.html', ['eventos' => $eventos]);
     
     
 ?>
