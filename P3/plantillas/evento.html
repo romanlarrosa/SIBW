@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+            {% block estilo %}
+            <link rel="stylesheet" href="{{ estilo }}" type="text/css">
+            {% endblock %}
 
             {% block comentarios %}
 
@@ -75,7 +78,7 @@
                         <img class="social_button" src="img/facebooklogo.png">
                     </a>
 
-                    <a href="imprimir.html">
+                    <a href="evento.php?ev={{ ev }}&sty=1">
                         <img class="social_button" src="img/printer.png">
                     </a>
                 </div>

@@ -3,14 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>FESTIVALEROS</title>
-        <link rel="stylesheet" href="css/estilos.css{{ endblock }}" type="text/css">
+        {% block estilo %}
+        <link rel="stylesheet" href="css/estilos.css" type="text/css">
+        {% endblock %}
         <script src="js/miscript.js"></script>
     </head>
     <body>
         <main>
             <header>
                 <div>
-                    <a href="portada.html">
+                    <a href="index.php">
                         <img src="img/logo-festivalero.png" alt="LOGO" id="logo">
                     </a>
                 </div>

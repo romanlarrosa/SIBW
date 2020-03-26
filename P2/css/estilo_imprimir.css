@@ -78,6 +78,14 @@ header img {
     display: none;
 }
 
+#mySidenav {
+    display: none;
+}
+
+.boton_comentarios {
+    display: none;
+}
+
 
 footer {
     width: 100%;
