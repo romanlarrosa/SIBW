@@ -6,13 +6,7 @@
     $twig = new \Twig\Environment($loader);
 
     
-    $resultado = getAllEventos();
-    $eventos = array();
-
-
-    while($res = $resultado->fetch_assoc()) {
-        $eventos[] = $res;
-    }
+    $eventos = getAllEventos();
 
 
     echo $twig->render('portada.html', ['eventos' => $eventos]);

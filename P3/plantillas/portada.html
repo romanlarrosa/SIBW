@@ -6,7 +6,9 @@
                 {% for event in eventos %}
                 <div class="evento">
                     <a href="evento.php?ev={{ event['evento'] }}">
-                        <img src="{{ event['icono'] }}">
+                        <div class="icono_evento">
+                            <img src="{{ event['icono'] }}">
+                        </div>
                         <span>{{event['nombre']}}</span>
                     </a>
                 </div>

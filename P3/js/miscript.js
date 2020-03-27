@@ -24,7 +24,7 @@ function addComentario(event){
     alert("Email no valido");
     return false;
   }
-
+  /*
   //Una vez que comprobamos que estan todos los campos y que el email es correcto, procedemos a insertar el comentario
   var fecha = (new Date()).toLocaleString('es-ES',{timeZone:'Europe/Madrid'});
   var lista = document.getElementsByClassName('lista_comentarios');
@@ -43,6 +43,7 @@ function addComentario(event){
     "               </div>");
 
   return false;
+  */
   
 }
 

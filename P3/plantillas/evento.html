@@ -4,6 +4,7 @@
             <link rel="stylesheet" href="{{ estilo }}" type="text/css">
             {% endblock %}
 
+
             {% block comentarios %}
 
             <div id="mySidenav" class="sidenav">
@@ -11,43 +12,47 @@
                 <div id="comentarios_">
                     COMENTARIOS
                 </div>
+                
                 <section class="lista_comentarios">
-                    <div class="comentario">
-                        <h4>
-                            Antonia Perez:
-                        </h4>
-                        <p class="texto_comentario">
-                            Que ganas tengo de que llegue!
-                        </p>
-                        <p class="fecha_comentario">
-                            04/02/2020 16:56
-                        </p>
-                    </div>
-                    <div class="comentario">
-                        <h4>
-                            Marina Hernandez Bautista:
-                        </h4>
-                        <p class="texto_comentario">
-                            Me he gastado todos mis ahorros en esto espero que valga la pena
-                        </p>
-                        <p class="fecha_comentario">
-                            06/02/2020 21:34
-                        </p>
-                    </div>
+                    {% if comentarios %}
+                        {% for coment in comentarios %}
+                            <div class="comentario">
+                                <h4>
+                                    {{ coment['user'] }}:
+                                </h4>
+                                <p class="texto_comentario">
+                                    {{ coment['contenido'] }}
+                                </p>
+                                <p class="fecha_comentario">
+                                    {{ coment['fecha'] }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="comentario">
+                            <h4>
+                                Aún no hay nada aqui:
+                            </h4>
+                            <p class="texto_comentario">
+                                Puedes dejar tu comentario rellenando el formulario de abajo!!
+                            </p>
+                            
+                        </div>
+                    {% endif %}
                 </section>    
 
-                <div class="form_comentario">
+                <form class="form_comentario" action="insertarComentario.php?ev={{ evento['evento'] }}" method="POST">
                         <label for="name">Nombre</label>
-                        <input type="text" id="name" name="user_name">
+                        <input type="text" id="name" name="name" required>
 
                         <label for="mail">Email</label>
-                        <input type="text" id="mail" name="user_mail">
+                        <input type="email" id="mail" name="mail" required>
 
                         <label for="msg">Comentario</label>
-                        <textarea id="msg" name="user_message" placeholder="Escribe tu comentario..." onkeyup="censurar(event)"></textarea>
+                        <textarea id="msg" name="msg" placeholder="Escribe tu comentario..." onkeyup="censurar(event)" required></textarea>
 
-                        <input type="button" onclick="addComentario(event)" value="ENVIAR"></input>
-                </div>
+                        <input type="submit" value="ENVIAR"></input>
+                </form>
                 
                 
             </div>
@@ -78,7 +83,7 @@
                         <img class="social_button" src="img/facebooklogo.png">
                     </a>
 
-                    <a href="evento.php?ev={{ ev }}&sty=1">
+                    <a href="evento.php?ev={{ evento['evento'] }}&sty=1">
                         <img class="social_button" src="img/printer.png">
                     </a>
                 </div>

@@ -14,22 +14,22 @@
   if (isset($_GET['ev'])) {
     $idEv = $_GET['ev'];
     $mysqli = conectar();
-    //Evento info
+    //Info evento
     $evento = getEvento($idEv, $mysqli);
     //Fotos
     $fotos = getFotosEvento($idEv, $mysqli);
 
+    //Añade el comentario
+    addComentario($idEv, $_REQUEST, $mysqli);
+
     //Comentarios
     $comentarios = getComentariosEvento($idEv, $mysqli);
+    $openC = true; 
+
   } else {
     $idEv = -1;
   }
 
-  if (isset($_GET['sty']) && $_GET['sty'] == 1) {
-    $estilo = "css/estilo_imprimir.css";
-  }
-
   
-  //print("Algo estoy haciendo " . $evento['contenido']);
   echo $twig->render('evento.html', ['evento' => $evento, 'fotos' => $fotos, 'comentarios' => $comentarios, 'estilo' => $estilo]);
 ?>
