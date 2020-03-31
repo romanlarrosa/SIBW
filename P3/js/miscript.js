@@ -62,15 +62,7 @@ function emailValido(mail) {
 
 palabraAux = "";
 index = 0;
-var palabras_censuradas = [
-    "estafa",
-    "marina",
-    "prueba",
-    "censura",
-    "pago",
-    "deiit",
-    "delegacion"
-];
+var palabras_cen = [];
 
 function censurar(event) {
   //Comprobar cada palabra (cada vez que se pulsa el espacio)
@@ -78,7 +70,7 @@ function censurar(event) {
   var re = /[a-zA-Z]/;
   var mensaje = document.getElementById("msg");
 
-  if(re.test(tecla)){
+  if(re.test(tecla) && tecla != " "){
     palabraAux += tecla;
   }
   else{
@@ -86,21 +78,35 @@ function censurar(event) {
       compruebaCensura(palabraAux);
       palabraAux = "";
     }
-    if(event.keyCode === 8){
-      palabraAux = palabraAux.substring(0, palabraAux.length - 1);
-    }
   }
 
   index = mensaje.value.length;
 }
 
 function compruebaCensura(palabra) {
-  var i;
-  for(i = 0; i< palabras_censuradas.length; i++){
-    if(palabra === palabras_censuradas[i]){
-      censura(palabra);
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      palabras_cen = JSON.parse(this.responseText);
     }
-  }
+    var i;
+      //alert("Aqui estoy llegando");
+      for(i = 0; i< palabras_cen.length; i++){
+        if(palabra === palabras_cen[i]){
+          censura(palabra);
+        }
+      }
+  };
+  
+  xmlhttp.open("GET", "getPalabras.php", true);
+  xmlhttp.send();
+
+  //alert(String(palabras_cen[1]));
+
+
+  
+  //console.log(palabras_cen);
+  
 }
 
 function censura(palabra){
@@ -112,7 +118,7 @@ function censura(palabra){
   }
 
   //alert("Subcadena: " + mensaje.value.substring(0, index - palabra.length));
-  var nuevomsj = mensaje.value.substring(0, index - palabra.length) + aux + " ";
+  var nuevomsj = mensaje.value.substring(0, index - palabra.length -1) + aux + " ";
 
   mensaje.value = nuevomsj;
 }

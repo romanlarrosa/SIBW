@@ -81,4 +81,18 @@
     }
     return $mysqli;
   }
+
+  function getPalabras() {
+    $mysqli = conectar();
+    $sql = "SELECT palabra FROM CENSURA";
+
+    $resultado = $mysqli->query($sql);
+    $palabras = array();
+
+    while($res = $resultado->fetch_assoc()) {
+      $palabras[] = $res['palabra'];
+    }
+
+    return $palabras;
+  }
 ?>
