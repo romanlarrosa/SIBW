@@ -1,0 +1,100 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Arial", sans-serif;
+    color: black;
+}
+
+h5 {
+    font-weight: normal;
+}
+
+/* CONFIGURACIONES PARA IMPRIMIR*/
+
+header {
+    width: 100%;
+    margin: 0em;
+    padding: 0em;
+    align-content: center;
+}
+header img {
+    max-width: 14%;
+    margin-left: 43%;
+}
+
+#titulo {
+    display: none;
+}
+
+#menu {
+    visibility: hidden;
+}
+
+.barra_lateral {
+    display: none;
+}
+
+/* INFO EVENTO */
+.info  {
+    width: 75%;
+    float: left;
+    padding: 0%;
+    margin-left: 20%;
+    margin-right: 25%;
+}
+
+.informacion_evento {
+    width: 45%;
+    margin: 0%;
+    float: left;
+}
+
+.informacion_evento h1 {
+    font-size: 300%;
+}
+
+.informacion_evento h5 {
+    font-size: 130%;
+}
+
+.fotos_evento {
+    width: 45%;
+    padding: 2%;
+    margin: 0%;
+    float: left;
+}
+
+#logo_evento {
+    width: 80%;
+    float: left;
+}
+
+.imagen_evento {
+    width: 80%;
+}
+
+.social_button {
+    display: none;
+}
+
+
+#mySidenav {
+    display: none;
+}
+
+.boton_comentarios {
+    display: none;
+}
+
+
+
+footer {
+    width: 100%;
+    text-align: center;
+    color: black;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    display: inline-block;
+    float: none;
+}

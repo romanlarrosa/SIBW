@@ -1,0 +1,94 @@
+CREATE table EVENTO(
+    evento int AUTO_INCREMENT primary key,
+    icono varchar(200),
+    nombre varchar(200),
+    contenido text
+);
+
+CREATE table FOTO(
+    foto int AUTO_INCREMENT primary key,
+    direccion varchar(200),
+    evento int,
+    FOREIGN KEY (evento) REFERENCES EVENTO(evento)
+);
+
+create table COMENTARIO(
+    comentario int AUTO_INCREMENT primary key,
+    contenido text,
+    fecha date,
+    user varchar(200),
+    mail varchar(200),
+    evento int,
+    FOREIGN KEY (evento) REFERENCES EVENTO(evento)
+);
+
+crate table CENSURA(
+    id int AUTO_INCREMENT primary key,
+    palabra varchar100
+)
+
+
+INSERTS**********************************
+
+//////////////////////EVENTO////////////////////////
+
+INSERT into EVENTO(nombre, icono, contenido) values ('Arenal Sound', 'img/arenal.png', 
+'El festival Arenal Sound es un festival de música independiente que se celebra en la playa El Arenal, en la localidad de Burriana (provincia de Castellón, España), durante la primera semana de agosto desde 2010. 
+Se caracteriza por su gran afluencia de jóvenes y se diferencia de otros festivales por su cercanía a la playa al tener uno de sus escenarios sobre la misma arena. Se ha convertido en uno de los referentes de la temporada estival nacional.
+El festival reúne cada año a jóvenes de toda España que acuden a Burriana para disfrutar de los conciertos de sus artistas favoritos, son ya 10 años de sol y playa al ritmo de la mejor música en directo: 
+por los escenarios del Arenal Sound han pasado grandes artistas nacionales e internacionales como The Cranberries, Scissor Sisters, Metronomy, Kaiser Chiefs, Two Door Cinema Club, Editors, Placebo, Rudimental, Steve Aoki, Martin Garrix, etc.
+Como viene siendo habitual en los últimos años, los abonos para asistir al festival se agotaron en pocas horas. Si no pudiste hacerte con el tuyo, muy atentx porque el jueves 13 de febrero a las 12:00 horas saldrán a la venta las entradas de día. ¡Aún estás a tiempo de asisitir a una de las fiestas del verano! 
+');
+
+INSERT into EVENTO(nombre, icono, contenido) values ('Dreambech', 'img/dreambeach.png', 
+'Dreambeach Villaricos es un festival de música electrónica que se celebra anualmente desde 2012 en la playa de Palomares, dentro del municipio español de Cuevas del Almanzora (Almería). 
+El festival recibe su nombre de su antigua ubicación, en la población de Villaricos. Dreambeach es el heredero del famoso Creamfields Andalucía, el cual dejó de celebrarse en 2012. 
+En la venta de la 5.ª edición se llegaron a superar los 12 000 abonos vendidos a las pocas horas sin haber confirmado ningún artista. Desde 2019 el festival celebra también una edición en Chile.
+');
+
+INSERT into EVENTO(nombre, icono, contenido) values ('Granada Sound', 'img/granada_sound.png', 
+'Granada es el último bastión del indie. Nadie como nosotros sabe apreciar la importancia de este género, y nadie más te puede ofrecer una cita como esta. 
+Por eso nos vestimos de arte, de nostalgia y de puro sentimiento en blanco y negro, para celebrar que seguimos aquí, un año más, para despedir el verano y reencontrarnos con la música.
+');
+
+INSERT into EVENTO(nombre, icono, contenido) values ('Viña Rock', 'img/vina_rock.jfif', 
+'El Festival de Arte Nativo Viña Rock es un festival musical español organizado anualmente el fin de semana previo al 1 de mayo. 
+Desde sus inicios en 1996 se han celebrado en la ciudad albaceteña de Villarrobledo 24 ediciones consecutivas. 
+En la edición de 2007 la empresa que organizaba el festival decidió trasladarlo a Benicàssim, en la provincia de Castellón, pero la Audiència Provincial de València ha concedido al Ayuntamiento de Villarrobledo (Albacete) la titularidad de la marca Viña Rock.
+');
+
+INSERT into EVENTO(nombre, icono, contenido) values ('Medusa', 'img/medusa.png', 
+'El Medusa Sunbeach Festival se trata de un festival de música electrónica dirigido principalmente hacia un público joven de entre 16 y 35 años. Se celebra desde 2014 cada año en la playa de Cullera, municipio de Valencia, Comunidad Valenciana. 
+Encontramos diferentes estilos con sus respectivos escenarios: desde el EDM en el escenario principal hasta Techno, Indie, Remember, Hardtechno, Dubstep y Trap (estos 3 últimos fueron incluidos en la última edición).
+');
+
+//////////////////////FOTO////////////////////////
+
+INSERT into FOTO(direccion, evento) values ('img/EV1/foto0.png','1');
+INSERT into FOTO(direccion, evento) values ('img/EV1/foto1.jpg','1');
+INSERT into FOTO(direccion, evento) values ('img/EV1/foto2.jpg','1');
+
+INSERT into FOTO(direccion, evento) values ('img/EV2/foto0.png','2');
+INSERT into FOTO(direccion, evento) values ('img/EV2/foto1.jpg','2');
+INSERT into FOTO(direccion, evento) values ('img/EV2/foto2.jpg','2');
+
+INSERT into FOTO(direccion, evento) values ('img/EV3/foto0.png','3');
+INSERT into FOTO(direccion, evento) values ('img/EV3/foto1.jpg','3');
+INSERT into FOTO(direccion, evento) values ('img/EV3/foto2.png','3');
+
+INSERT into FOTO(direccion, evento) values ('img/EV4/foto0.png','4');
+INSERT into FOTO(direccion, evento) values ('img/EV4/foto1.jpg','4');
+INSERT into FOTO(direccion, evento) values ('img/EV4/foto2.jpg','4');
+
+INSERT into FOTO(direccion, evento) values ('img/EV5/foto0.png','6');
+INSERT into FOTO(direccion, evento) values ('img/EV5/foto1.jpg','6');
+INSERT into FOTO(direccion, evento) values ('img/EV5/foto2.jpg','6');
+
+
+INSERT into CENSURA(palabra) values ('estafa');
+INSERT into CENSURA(palabra) values ('marina');
+INSERT into CENSURA(palabra) values ('prueba');
+INSERT into CENSURA(palabra) values ('censura');
+INSERT into CENSURA(palabra) values ('pago');
+INSERT into CENSURA(palabra) values ('deiit');
+INSERT into CENSURA(palabra) values ('delegacion');

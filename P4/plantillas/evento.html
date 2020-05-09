@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+            {% block estilo %}
+            <link rel="stylesheet" href="{{ estilo }}" type="text/css">
+            {% endblock %}
+
+
+            {% block comentarios %}
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div id="comentarios_">
+                    COMENTARIOS
+                </div>
+                
+                <section class="lista_comentarios">
+                    {% if comentarios %}
+                        {% for coment in comentarios %}
+                            <div class="comentario">
+                                <h4>
+                                    {{ coment['user'] }}:
+                                </h4>
+                                <p class="texto_comentario">
+                                    {{ coment['contenido'] }}
+                                </p>
+                                <p class="fecha_comentario">
+                                    {{ coment['fecha'] }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="comentario">
+                            <h4>
+                                Aún no hay nada aqui:
+                            </h4>
+                            <p class="texto_comentario">
+                                Puedes dejar tu comentario rellenando el formulario de abajo!!
+                            </p>
+                            
+                        </div>
+                    {% endif %}
+                </section>    
+
+                <form class="form_comentario" action="insertarComentario.php?ev={{ evento['evento'] }}" method="POST">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="mail">Email</label>
+                        <input type="email" id="mail" name="mail" required>
+
+                        <label for="msg">Comentario</label>
+                        <textarea id="msg" name="msg" placeholder="Escribe tu comentario..." onkeyup="censurar(event)" required></textarea>
+
+                        <input type="submit" value="ENVIAR"></input>
+                </form>
+                
+                
+            </div>
+
+            <div class="boton_comentarios" onclick="openNav()">
+                <img src="https://img.icons8.com/small/452/comments.png" alt="Comentarios">
+            </div>
+
+            {% endblock %}
+
+
+            {% block contenido %}
+
+            <section class="info">
+                <div class="informacion_evento">
+                    <h1>
+                        {{ evento['nombre'] }}
+                    </h1>
+                    <h5>
+                        {{ evento['contenido'] }}
+                    </h5>
+
+                    <a href="http://twitter.com/rowesito">
+                        <img class="social_button" src="img/twitterlogo.png">
+                    </a>
+
+                    <a href="http://facebook.com">
+                        <img class="social_button" src="img/facebooklogo.png">
+                    </a>
+
+                    <a href="evento.php?ev={{ evento['evento'] }}&sty=1">
+                        <img class="social_button" src="img/printer.png">
+                    </a>
+                </div>
+                <div class="fotos_evento">
+                    {% for foto in fotos %}
+                    <img class="imagen_evento" src="{{ foto['direccion'] }}">
+
+                    {% endfor %}
+                    
+                </div>               
+            </section>
+
+            {% endblock %}
