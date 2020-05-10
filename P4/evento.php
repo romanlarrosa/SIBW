@@ -29,7 +29,14 @@
     $estilo = "css/estilo_imprimir.css";
   }
 
+  session_start();
+    $usuario = array();
+    if (isset($_SESSION['user'])) {
+        $usuario = getUsuario($_SESSION['user']);
+        
+    }
+
   
   //print("Algo estoy haciendo " . $evento['contenido']);
-  echo $twig->render('evento.html', ['evento' => $evento, 'fotos' => $fotos, 'comentarios' => $comentarios, 'estilo' => $estilo]);
+  echo $twig->render('evento.html', ['evento' => $evento, 'fotos' => $fotos, 'comentarios' => $comentarios, 'estilo' => $estilo, 'usuario' => $usuario]);
 ?>

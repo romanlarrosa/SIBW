@@ -20,9 +20,25 @@
                                 <h4>
                                     {{ coment['user'] }}:
                                 </h4>
+                                {% if usuario['tipo'] == "MOD" or usuario['tipo'] == "SUPER" %}
+                                <a class="btn_comentario" href="eliminarcomentario.php?id={{ coment['comentario'] }}&ev={{ evento['evento'] }}">&times;</a>
+                                <a href="javascript:void(0)" class="btn_comentario" onclick="openEditar({{ coment['comentario'] }})">Editar</a>
+                                {% endif %}
                                 <p class="texto_comentario">
                                     {{ coment['contenido'] }}
                                 </p>
+                                {% if usuario['tipo'] == "MOD" or usuario['tipo'] == "SUPER" %}
+                                    <form class="editar_comentario" id="editar_comentario{{ coment['comentario'] }}" action="editarcomentario.php?id={{ coment['comentario'] }}&ev={{ evento['evento'] }}" method="POST">
+                                        <label for="msg">Edicion</label>
+                                        <textarea id="msg_edit" name="msg_edit" placeholder="Edita el comentario..." required>{{ coment['contenido'] }}</textarea>
+                                        <input type="submit" value="EDITAR"></input>
+                                    </form>
+                                {% endif %}
+                                {% if coment['editado'] %}
+                                <p class="comentario_editado">
+                                    Editado por mod.
+                                </p>
+                                {% endif %}
                                 <p class="fecha_comentario">
                                     {{ coment['fecha'] }}
                                 </p>
@@ -42,12 +58,6 @@
                 </section>    
 
                 <form class="form_comentario" action="insertarComentario.php?ev={{ evento['evento'] }}" method="POST">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required>
-
-                        <label for="mail">Email</label>
-                        <input type="email" id="mail" name="mail" required>
-
                         <label for="msg">Comentario</label>
                         <textarea id="msg" name="msg" placeholder="Escribe tu comentario..." onkeyup="censurar(event)" required></textarea>
 

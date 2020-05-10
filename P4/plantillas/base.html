@@ -12,6 +12,15 @@
     <body>
         <main>
             <header>
+                <div id=identity>
+                    {% block identidad %}
+                        {% if usuario['user'] %}
+                        Hola {{usuario['user']}}!, accede a <a href="configuracion.php">configuracion</a> o <a href="signout.php">cierra sesion</a>
+                        {% else %}
+                        <a href="login.php?act=signIn">Registrate</a> o <a href="login.php?act=login">entra!</a>
+                        {% endif %}
+                    {% endblock %}
+                </div>
                 <div>
                     <a href="index.php">
                         <img src="img/logo-festivalero.png" alt="LOGO" id="logo">
@@ -33,6 +42,7 @@
             {% block comentarios %}
 
             {% endblock %}
+            {% block barra_lateral %}
             <aside class="barra_lateral">
                 
                     <h2>LINK OFICIALES</h2>
@@ -53,7 +63,7 @@
                     </a>
                 
             </aside>
-
+            {% endblock %}
             {% block contenido %}
 
             {% endblock %}

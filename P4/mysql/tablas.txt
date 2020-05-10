@@ -16,16 +16,25 @@ create table COMENTARIO(
     comentario int AUTO_INCREMENT primary key,
     contenido text,
     fecha date,
-    user varchar(200),
-    mail varchar(200),
+    user_id int,
     evento int,
-    FOREIGN KEY (evento) REFERENCES EVENTO(evento)
+    editado boolean default false,
+    FOREIGN KEY (evento) REFERENCES EVENTO(evento),
+    FOREIGN KEY (user_id) REFERENCES USUARIO(id)
 );
 
 crate table CENSURA(
     id int AUTO_INCREMENT primary key,
     palabra varchar100
-)
+);
+
+create table USUARIO(
+    id int AUTO_INCREMENT primary key,
+    user varchar(200) not null,
+    email varchar(200) not null,
+    pass varchar(200) not null,
+    tipo varchar(200) not null
+);
 
 
 INSERTS**********************************

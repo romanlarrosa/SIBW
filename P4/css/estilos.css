@@ -14,6 +14,24 @@ h5 {
 PORTADA:
 */
 
+#identity {
+    text-align: end;
+    margin-right: 1em;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+}
+
+#identity a {
+    color: darkcyan;
+    text-decoration: none;
+}
+
+#identity a:hover {
+    color: white;
+    text-decoration: none;
+}
+
 main {
     max-width: auto;
     margin: auto;
@@ -62,8 +80,21 @@ Barra navegacion
     font-weight: bold;
 }
 
+.boton_dark {
+	color: #fc6b34;
+	border: 3px solid #fc6b34;
+	border-radius: 50px;
+    padding: 0.8rem 2rem;
+    margin: 20px;
+    outline: none;
+    display: inline-flex;
+    font-weight: bold;
+    text-transform: capitalize;
+    background-color: transparent;
+}
 
-.boton:hover {
+
+.boton:hover, .boton_dark:hover {
     color: #b33909;
     border-color: #b33909;
     box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
@@ -262,7 +293,7 @@ EVENTO.HTML
 
 .lista_comentarios{
     overflow-y:auto;
-    max-height: 50%;
+    max-height: 70vh;
 
 }
 
@@ -274,6 +305,7 @@ EVENTO.HTML
     width: 80%;
     margin: 3%;
     margin-left: 10%;
+    margin-bottom: 3em;
 }
 .texto_comentario {
     text-align: left;
@@ -283,8 +315,29 @@ EVENTO.HTML
     border-radius: 5px;
 }
 
+.comentario h4{
+    display:inline-block;
+}
+
+.btn_comentario {
+    color: black;
+    filter: invert(100%);
+    text-decoration: none;
+    float: right;
+    margin-left: 1em;
+
+    font-size: 1.5vh;
+}
+
+.comentario_editado {
+    float: left;
+    margin-right: 5%;
+    font-style: italic;
+    font-size: small;
+}
+
 .fecha_comentario {
-    text-align: right;
+    float: right;
     margin-right: 5%;
     font-style: italic;
     font-size: small;
@@ -317,4 +370,82 @@ EVENTO.HTML
   /* Esquema del formulario */
   padding: 1em;
 }
+
+
+#login_div {
+    float: right;
+    width: 40%;
+    margin-right: 30%;
+    margin-top: 2em;
+    text-align: center;
+    border: 3px solid #fc6b34;
+    border-radius: 50px;
+    text-emphasis: none;
+    font-weight: bold;
+}
+
+#login_div h1{
+    text-transform: capitalize;
+    color: white;
+    border: 4px solid #fc6b34;
+    border-radius: 5px;
+    background-color: #fc6b34;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#login_div input[type=text], #login_div input[type=password], #login_div input[type=email] {
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 4px solid #fc6b34;
+    border-radius: 5px; 
+    background-color: transparent;
+}
+
+#msg_adv {
+    text-align: center;
+    color: white;
+    border: 4px solid #f3a687;
+    border-radius: 5px;
+    background-color: #f3a687;
+    width: 40%;
+    margin-left: 30%;
+
+}
+
+#selected {
+    border: 4px solid #fc6b34;
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 1em;
+    display: block;
+}
+
+.configuraciones {
+    margin-top: 1em;
+    display: block;
+}
+
+#permisos_cont {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#permisos_cont form{
+    float: right;
+}
+
+.user_permisos {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #fc6b34;
+    border-radius: 0.2em;
+}
+
+.editar_comentario{
+    transition: 0.5s;
+    display: none;
+}
+
 

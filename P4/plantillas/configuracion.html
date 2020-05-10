@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block barra_lateral %}
+
+<aside class="barra_lateral">        
+    <h2>CONFIGURACION</h2>
+    <a href="configuracion.php" class="configuraciones" {% if act=="misDatos" %} id="selected"  {% endif %}>
+        MIS DATOS
+    </a>
+    {% if usuario['tipo'] == "SUPER" %}
+    <a href="configuracion.php?act=permisos" class="configuraciones" {% if act=="permisos" %} id="selected"  {% endif %}>
+        PERMISOS
+    </a>
+    {% endif %}
+</aside>
+
+{% endblock %}
+
+{% block contenido %}
+
+
+{% if msg %}
+<div id="msg_adv">
+        {{ msg }}
+</div>
+{% endif %}
+
+{% if act=="misDatos" %}
+<div id="login_div">
+    <form action="cambiarmisdatos.php" method="POST">
+        NICK <br>
+        <input type="text" id="nick" name="nick" value="{{ usuario['user'] }}"><br>
+        MAIL <br>
+        <input type="email" id="email" name="email" value="{{ usuario['email'] }}"> <br>
+        <input type="submit" class = "boton_dark" id="submit-btn" value="Cambiar datos">
+    </form><br>
+
+    PERMISOS: {{ usuario['tipo'] }}
+</div>
+{% endif %}
+
+{% if act=="permisos" %}
+<div id="permisos_cont">
+    {% for user in users %}
+    {% if user['user'] != usuario['user'] %}
+    <div class="user_permisos">
+        {{ user['user'] }}
+        <form action="cambiarPermisos.php?id={{ user['id'] }}" id="permisosform" method="POST">
+            <select id="cars" name="permiso">
+                <option value="USER" {% if user['tipo'] == "USER" %} selected {% endif %}>USER</option>
+                <option value="MOD" {% if user['tipo'] == "MOD" %}selected{% endif %}>MOD</option>
+                <option value="GESTOR" {% if user['tipo'] == "GESTOR" %}selected{% endif %}>GESTOR</option>
+                <option value="SUPER" {% if user['tipo'] == "SUPER" %}selected{% endif %}>SUPER</option>
+            </select>
+            <input type="submit" value="Cambiar">
+        </form> 
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+{% endif %}
+
+
+
+{% endblock %}

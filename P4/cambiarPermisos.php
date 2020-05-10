@@ -5,15 +5,21 @@
     $loader = new \Twig\Loader\FilesystemLoader('plantillas');
     $twig = new \Twig\Environment($loader);
 
-
-    $eventos = getAllEventos();
     session_start();
-
     $usuario = array();
     if (isset($_SESSION['user'])) {
         $usuario = getUsuario($_SESSION['user']);
         
     }
-    echo $twig->render('portada.html', ['eventos' => $eventos, 'usuario' => $usuario]);
     
+    if( $usuario['tipo'] == "SUPER" ){ //RESTRINGIR esta opcion solo a usuarios SUPER
+        $id = $_GET['id'];
+        $tipo = $_POST['permiso'];
+        cambiarPermisos($id, $tipo);
+    }
+    
+
+    header("Location: configuracion.php?act=permisos");
+
+
 ?>

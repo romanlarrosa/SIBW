@@ -5,15 +5,20 @@
     $loader = new \Twig\Loader\FilesystemLoader('plantillas');
     $twig = new \Twig\Environment($loader);
 
-
-    $eventos = getAllEventos();
+    $action = "login";
+    
+    if (isset($_GET['act'])){
+        $action = $_GET['act'];
+    }
     session_start();
-
     $usuario = array();
     if (isset($_SESSION['user'])) {
         $usuario = getUsuario($_SESSION['user']);
         
     }
-    echo $twig->render('portada.html', ['eventos' => $eventos, 'usuario' => $usuario]);
+    
+
+    echo $twig->render('login.html', ['act' => $action, 'usuario' => $usuario]);
+    
     
 ?>
