@@ -12,6 +12,18 @@
         PERMISOS
     </a>
     {% endif %}
+
+    {% if usuario['tipo'] == "SUPER" or usuario['tipo'] == "MOD" %}
+    <a href="configuracion.php?act=comentarios" class="configuraciones" {% if act=="comentarios" %} id="selected"  {% endif %}>
+        COMENTARIOS
+    </a>
+    {% endif %}
+
+    {% if usuario['tipo'] == "SUPER" or usuario['tipo'] == "GESTOR" %}
+    <a href="configuracion.php?act=gestoreventos" class="configuraciones" {% if act=="gestoreventos" %} id="selected"  {% endif %}>
+        EVENTOS
+    </a>
+    {% endif %}
 </aside>
 
 {% endblock %}
@@ -40,10 +52,10 @@
 {% endif %}
 
 {% if act=="permisos" %}
-<div id="permisos_cont">
+<div id="contenedor_configuracion">
     {% for user in users %}
     {% if user['user'] != usuario['user'] %}
-    <div class="user_permisos">
+    <div class="item_contenedor_configuracion">
         {{ user['user'] }}
         <form action="cambiarPermisos.php?id={{ user['id'] }}" id="permisosform" method="POST">
             <select id="cars" name="permiso">
@@ -58,6 +70,37 @@
     {% endif %}
     {% endfor %}
 
+</div>
+{% endif %}
+
+{% if act=="comentarios" %}
+<select id="selector_evento_comentarios" name="permiso">
+        <option value="valor"> -- selecciona un evento -- </option>
+    {% for evento in eventos %}
+    <option value="{{ evento['evento'] }}">{{ evento['nombre'] }}</option>
+    {% endfor %}
+</select>
+
+<div id="contenedor_comentarios">
+    <!-- Aqui se cargan los comentarios del evento -->
+</div>
+    <script src="js/comentarios.js"></script>
+{% endif %}
+
+
+{% if act=="gestoreventos" %}
+<div id="contenedor_configuracion">
+    {% for event in eventos %}
+    <div class="item_contenedor_configuracion">
+        {{ event['nombre'] }}
+        <form action="gestorevento.php" id="permisosform" method="GET">
+            <button type="submit" name="idEv" value="{{ event['evento'] }}">Editar</button>
+        </form> 
+        <form action="eliminarevento.php" id="permisosform" method="POST">
+            <button type="submit" name="idEv" value="{{ event['evento'] }}">Eliminar</button>
+        </form> 
+    </div>
+    {% endfor %}
 </div>
 {% endif %}
 

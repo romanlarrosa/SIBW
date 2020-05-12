@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+
+{% if msg %}
+<div id="msg_adv">
+        {{ msg }}
+</div>
+{% endif %}
+
+<div id="login_div">
+    {% if act == "login" %}
+        <h1> Login </h1>
+        {% elseif act == "signIn" %}
+        <h1> Registrate </h1>
+    {% endif %}
+    <form action="login_req.php?act={{ act }}" method="POST">
+        NICK <br>
+        <input type="text" id="nick" name="nick"><br>
+        {% if act == "signIn" %}
+        MAIL <br>
+        <input type="email" id="email" name="email"> <br>
+        {% endif %}
+        PASS <br>
+        <input type="password" id="pass" name="pass"> <br>
+        
+        <input type="submit" class = "boton_dark" id="submit-btn" value="Enviar">
+    </form>
+</div>
+
+
+{% endblock %}

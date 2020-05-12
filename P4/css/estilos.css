@@ -33,7 +33,6 @@ PORTADA:
 }
 
 main {
-    max-width: auto;
     margin: auto;
 }
 
@@ -97,7 +96,6 @@ Barra navegacion
 .boton:hover, .boton_dark:hover {
     color: #b33909;
     border-color: #b33909;
-    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
 }
 
@@ -427,16 +425,16 @@ EVENTO.HTML
     display: block;
 }
 
-#permisos_cont {
+#contenedor_configuracion {
     margin-left: 20%;
     margin-right: 20%;
 }
 
-#permisos_cont form{
+#contenedor_configuracion form{
     float: right;
 }
 
-.user_permisos {
+.item_contenedor_configuracion {
     margin: 1em;
     padding: 1em;
     border: 1px solid #fc6b34;
@@ -447,5 +445,112 @@ EVENTO.HTML
     transition: 0.5s;
     display: none;
 }
+
+
+
+#contenedor_comentarios {
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 1em;
+}
+
+.conf_comentario{
+    text-align: left;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 80%;
+    margin: 3%;
+    margin-left: 10%;
+    margin-bottom: 3em;
+}
+.conf_comentario a{
+    float: right;
+    color: #fc6b34;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.conf_comentario h4{
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.conf_comentario form{
+    padding: 1em;
+}
+
+.conf_comentario p{
+    display: block;
+    font-style: italic;
+    font-size: small;
+}
+
+.conf_comentario form textarea{
+    display: block;
+    margin: 1em;
+    width: 80%;
+}
+
+.evento_gestor{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+.evento_gestor form textarea{
+    width: 100%;
+    height: 40vh;
+}
+
+#boton_evento_gestor{
+    display: inline-block;
+    margin-left: 40%;
+    width: 20%;
+    margin-bottom: 3em;
+}
+
+.foto_editar_evento{
+    display: inline-block;
+    width: 7em;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.imagenes_editar_evento {
+    max-width: 100%;
+}
+
+.eliminar_foto{
+    display: inline;
+}
+
+#boton_eliminar_evento{
+    width: 100%;
+}
+
+#etiquetas_gestor{
+    display: block;
+    width: 100%;
+}
+
+#etiqueta{
+    background-color: #3d3d3d;
+    color: white;
+    margin: 0.2em;
+    padding: 0.2em;
+    border-radius: 0.2em;
+}
+
+
+
 
 

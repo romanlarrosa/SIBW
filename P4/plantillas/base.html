@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/estilos.css" type="text/css">
         {% endblock %}
         <script src="js/miscript.js"></script>
-        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
         <main>
@@ -31,6 +31,9 @@
                     <nav id="menu">
                         <ul >
                             <a href="index.php"><li class="boton">HOME</li></a>
+                            {% if usuario['tipo'] == "SUPER" or usuario['tipo'] == "GESTOR" %}
+                            <a href="gestorevento.php"><li class="boton">NUEVO EVENTO</li></a>
+                            {% endif %}
                             <a href="https://linktr.ee/rowesito"><li class="boton">CONTACTO</li></a>
                         </ul>
                     </nav>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+            {% block contenido %}
+            <section id="lista_eventos">
+                {% for event in eventos %}
+                <div class="evento">
+                    <a href="evento.php?ev={{ event['evento'] }}">
+                        <div class="icono_evento">
+                            <img src="{{ event['icono'] }}">
+                        </div>
+                        <span>
+                            {{event['nombre']}}
+                            {% if not event['publicado'] %}
+                            EVENTO NO PUBLICADO
+                            {% endif %}
+                        </span>
+                    </a>
+                </div>
+                {% endfor %}
+            </section>
+            {% endblock %}
+        

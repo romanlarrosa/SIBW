@@ -2,6 +2,7 @@
 
             {% block estilo %}
             <link rel="stylesheet" href="{{ estilo }}" type="text/css">
+            
             {% endblock %}
 
 
@@ -57,12 +58,14 @@
                     {% endif %}
                 </section>    
 
+                {% if usuario %}
                 <form class="form_comentario" action="insertarComentario.php?ev={{ evento['evento'] }}" method="POST">
                         <label for="msg">Comentario</label>
                         <textarea id="msg" name="msg" placeholder="Escribe tu comentario..." onkeyup="censurar(event)" required></textarea>
 
                         <input type="submit" value="ENVIAR"></input>
                 </form>
+                {% endif %}
                 
                 
             </div>
@@ -81,6 +84,9 @@
                     <h1>
                         {{ evento['nombre'] }}
                     </h1>
+                    {% for etiqueta in etiquetas %}
+                        <a id="etiqueta">{{etiqueta['etiqueta']}}</a>
+                    {% endfor %}
                     <h5>
                         {{ evento['contenido'] }}
                     </h5>
@@ -96,6 +102,21 @@
                     <a href="evento.php?ev={{ evento['evento'] }}&sty=1">
                         <img class="social_button" src="img/printer.png">
                     </a>
+
+                    {% if usuario['tipo'] == "SUPER" or usuario['tipo'] == "GESTOR" %}
+                    <a href="gestorevento.php?idEv={{ evento['evento'] }}">
+                        <img class="social_button" src="img/edit.png">
+                    </a>
+                    <br><br>
+                    <a>
+                        <form action="eliminarevento.php" method="POST">
+                            <button id="boton_eliminar_evento" type="submit" name="idEv" value="{{ evento['evento'] }}">
+                                Eliminar evento
+                            </button>
+                        </form>
+                        
+                    </a>
+                    {% endif %}
                 </div>
                 <div class="fotos_evento">
                     {% for foto in fotos %}

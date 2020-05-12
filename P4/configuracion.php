@@ -22,6 +22,17 @@
             $usuarios = getAllUsuarios();
             echo $twig->render('configuracion.html', ['act' => $action, 'usuario' => $usuario, 'users' => $usuarios]);
             break;
+
+        case "comentarios":
+            $eventos = getAllEventos();
+            echo $twig->render('configuracion.html', ['act' => $action, 'usuario' => $usuario, 'eventos' => $eventos]);
+            break;
+
+        case "gestoreventos":
+            $eventos = getAllEventos();
+            echo $twig->render('configuracion.html', ['act' => $action, 'usuario' => $usuario, 'eventos' => $eventos]);
+            break;
+
         default:
             echo $twig->render('configuracion.html', ['act' => $action, 'usuario' => $usuario]);
             break;

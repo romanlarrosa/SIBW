@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>FESTIVALEROS</title>
+        {% block estilo %}
+        <link rel="stylesheet" href="css/estilos.css" type="text/css">
+        {% endblock %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="js/miscript.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <main>
+            <header>
+                <div id=identity>
+                    {% block identidad %}
+                        {% if usuario['user'] %}
+                        Hola {{usuario['user']}}!, accede a <a href="configuracion.php">configuracion</a> o <a href="signout.php">cierra sesion</a>
+                        {% else %}
+                        <a href="login.php?act=signIn">Registrate</a> o <a href="login.php?act=login">entra!</a>
+                        {% endif %}
+                    {% endblock %}
+                </div>
+                <div>
+                    <a href="index.php">
+                        <img src="img/logo-festivalero.png" alt="LOGO" id="logo">
+                    </a>
+                </div>
+                <div>
+                    <h1 id="titulo">TODOS TUS FESTIVALES</h1>
+                    <nav id="menu">
+                        <ul >
+                            <a href="index.php"><li class="boton">HOME</li></a>
+                            {% if usuario['tipo'] == "SUPER" or usuario['tipo'] == "GESTOR" %}
+                            <a href="gestorevento.php"><li class="boton">NUEVO EVENTO</li></a>
+                            {% endif %}
+                            <a href="https://linktr.ee/rowesito"><li class="boton">CONTACTO</li></a>
+                            <a class="boton" onclick="openSearch()">BUSCAR</a>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        </main>
+
+        <div id="principal">
+            <div id="myOverlay" class="overlay">
+                <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+                <div class="overlay-content">
+                  <form action="index.php">
+                    <input type="text" id="barra_busqueda" placeholder="Search.." name="search" onkeyup="buscar(event)">
+                    <button><i class="fa fa-search"></i></button>
+                  </form>
+                  <div id="overlay-content">   
+                  </div>
+                  
+                  
+                </div>
+            </div>
+            {% block comentarios %}
+
+            {% endblock %}
+            {% block barra_lateral %}
+            <aside class="barra_lateral">
+                
+                    <h2>LINK OFICIALES</h2>
+                    <a href="https://www.arenalsound.com/">
+                        Arenal Sound
+                    </a>
+                    <br><br>
+                    <a href="https://www.dreambeach.es/">
+                        Dreambeach
+                    </a>
+                    <br><br>
+                    <a href="https://www.granadasound.com/">
+                        Granada Sound
+                    </a>
+                    <br><br>
+                    <a href="https://www.vina-rock.com/">
+                        Viña Rock
+                    </a>
+                
+            </aside>
+            {% endblock %}
+            {% block contenido %}
+
+            {% endblock %}
+        </div>
+
+        <footer>
+            <p>
+                Copyright FESTIVALEROS &copy; 2020<br>
+                Román Larrosa Lewandowska
+            </p>
+        </footer>
+    </body>
+</html>

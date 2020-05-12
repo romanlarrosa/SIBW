@@ -84,6 +84,8 @@
     return $usuarios;
   }
 
+  
+
   function addComentario($idEv, $text, $mysqli, $user) {
     //Ponemos las variables del usuario de forma segura
     $user_msg  = mysqli_real_escape_string($mysqli, $text);
@@ -198,5 +200,147 @@
     $mysqli->query($sql);
   }
 
+
+    
+  function subirFotos($peticion, $idEv, $archivos){
+    $mysqli = conectar();
+    $targetDir = "img/restoeventos/"; 
+    $allowTypes = array('jpg','png','jpeg','gif');
+
+    $fileNames = array_filter($archivos['files']['name']);
+    
+    if(!empty($fileNames)){
+     
+      foreach($archivos['files']['name'] as $key=>$val){
+        //El path del archivo
+        $fileName = date("Y-m-d-H-i-s") . basename($_FILES['files']['name'][$key]);
+        $targetFilePath = $targetDir . $fileName;
+
+        //Comprobar si el fichero es valido
+        $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+        if(in_array($fileType, $allowTypes)){
+          //Moverlo a la carpeta
+          //print "SI, " . $targetFilePath . "\n";
+          if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){
+            echo "SI, " . $targetFilePath . "\n";
+            $sql = "INSERT INTO FOTO (direccion, evento) VALUES ('$targetFilePath', '$idEv')";
+            $mysqli->query($sql);
+          }
+        }
+      }
+    }
+  }
+
+  function eliminarFoto($id) {
+    $mysqli = conectar();
+    if( !is_numeric($id)){
+      $id = -1;
+      
+    }
+    
+    $sql = "DELETE FROM FOTO WHERE foto='$id'";
+    $mysqli->query($sql);
+  }
+  
+  function editarEvento($id, $etiquetas) {
+    $mysqli = conectar();
+    $contenido  = mysqli_real_escape_string($mysqli, $_POST['contenido']);
+    $nombre = mysqli_real_escape_string($mysqli, $_POST['nombre']);
+    if( !is_numeric($id)){
+      $id = -1;
+    }
+    
+    $sql = "UPDATE EVENTO SET contenido='$contenido', nombre='$nombre' WHERE evento='$id'";
+    $mysqli->query($sql);
+
+    //Añadir las etiquetas
+    $sql = "DELETE FROM ETIQUETA WHERE evento='$id'";
+    $mysqli->query($sql);
+    foreach ($etiquetas as &$etiqueta){
+      $sql = "INSERT INTO ETIQUETA (etiqueta, evento) VALUES ('$etiqueta', '$id')";
+      $mysqli->query($sql);
+    }
+  }
+
+  function eliminarEvento($id) {
+    $mysqli = conectar();
+    if( !is_numeric($id)){
+      $id = -1;
+    }
+    //Eliminar todas las fotos, etiquetas y comentarios del evento
+    $sql = "DELETE FROM  FOTO WHERE evento='$id'";
+    $mysqli->query($sql);
+    $sql = "DELETE FROM  COMENTARIO WHERE evento='$id'";
+    $mysqli->query($sql);
+    $sql = "DELETE FROM  ETIQUETA WHERE evento='$id'";
+    $mysqli->query($sql);
+    //Eliminar el evento en si
+    $sql = "DELETE FROM  EVENTO WHERE evento='$id'";
+    $mysqli->query($sql);
+  }
+
+  function cargarIcono(){
+    $targetDir = "img/iconos/"; 
+    $fileName = date("Y-m-d-H-i-s") . basename($_FILES['fileToUpload']['name']);
+    $targetFilePath = $targetDir . $fileName;
+
+    $allowTypes = array('jpg','png','jpeg','gif');
+    $imageFileType = strtolower(pathinfo($targetFilePath,PATHINFO_EXTENSION));
+    if(in_array($imageFileType, $allowTypes)){
+    
+      if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFilePath)){
+        //echo "Bien";
+      }
+      else{
+        echo "Hay algun error";
+      }
+    }
+    return $targetFilePath;
+    
+    
+  }
+
+  function addEvento($etiquetas) {
+    $mysqli = conectar();
+    $contenido  = mysqli_real_escape_string($mysqli, $_POST['contenido']);
+    $nombre = mysqli_real_escape_string($mysqli, $_POST['nombre']);
+    $icono = cargarIcono();
+
+
+    $sql= "INSERT INTO EVENTO (nombre, contenido, icono) VALUES ('$nombre', '$contenido', '$icono')";
+    $mysqli->query($sql);
+
+    $sql= "SELECT MAX(evento) AS evento FROM EVENTO";
+    $resultado = $mysqli->query($sql);
+    $res = $resultado->fetch_assoc();
+
+    $idEv = $res['evento'];
+
+    //Añadir las etiquetas
+    $sql = "DELETE FROM ETIQUETA WHERE evento='$idEv'";
+    $mysqli->query($sql);
+    foreach ($etiquetas as &$etiqueta){
+      $sql = "INSERT INTO ETIQUETA (etiqueta, evento) VALUES ('$etiqueta', '$idEv')";
+      $mysqli->query($sql);
+    }
+
+    return $idEv;
+  }
+
+  function getEtiquetas($idEv) {
+    $mysqli = conectar();
+    //Realizamos la consulta para ver cuantos eventos hay
+    $resultado = $mysqli->query("SELECT * FROM ETIQUETA WHERE evento='$idEv'");
+
+    $etiquetas = array();
+
+
+    while($res = $resultado->fetch_assoc()) {
+        $etiquetas[] = $res;
+    }
+    return $etiquetas;
+  }
+  
+  
   
 ?>

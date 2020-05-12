@@ -36,6 +36,13 @@ create table USUARIO(
     tipo varchar(200) not null
 );
 
+create table ETIQUETA(
+    id int AUTO_INCREMENT primary key,
+    etiqueta varchar(200) not null,
+    evento int,
+    FOREIGN KEY (evento) REFERENCES EVENTO(evento)
+);
+
 
 INSERTS**********************************
 

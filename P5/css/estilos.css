@@ -1,0 +1,653 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Arial", sans-serif;
+    color: black;
+}
+
+h5 {
+    font-weight: normal;
+}
+
+/*
+PORTADA:
+*/
+
+#identity {
+    text-align: end;
+    margin-right: 1em;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+}
+
+#identity a {
+    color: darkcyan;
+    text-decoration: none;
+}
+
+#identity a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    margin: auto;
+}
+
+header {
+    background-color: #fc6b34;
+    align-content: center;
+}
+
+#logo {
+    max-width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#titulo {
+    /*text-align: center;*/
+    text-align: center;
+    color: white;
+}
+
+/*
+Barra navegacion
+*/
+
+#menu {
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+
+
+
+.boton {
+	color: white;
+	border: 3px solid white;
+	border-radius: 50px;
+    padding: 0.8rem 2rem;
+    margin: 20px;
+    outline: none;
+    display: inline-flex;
+    font-weight: bold;
+}
+
+.boton_dark {
+	color: #fc6b34;
+	border: 3px solid #fc6b34;
+	border-radius: 50px;
+    padding: 0.8rem 2rem;
+    margin: 20px;
+    outline: none;
+    display: inline-flex;
+    font-weight: bold;
+    text-transform: capitalize;
+    background-color: transparent;
+}
+
+
+.boton:hover, .boton_dark:hover {
+    color: #b33909;
+    border-color: #b33909;
+    transition: all 0.4s ease 0s;
+}
+
+
+
+.barra_lateral {
+    margin: 2%;
+    background-color: white;
+    border: 3px solid #fc6b34;
+    width: 15%;
+    min-height: 400px;
+    text-align: center;
+    padding: 0;
+    float: left;
+    
+
+}
+
+.barra_lateral h2 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: #fc6b34;
+    color: white;
+} 
+
+.barra_lateral a:hover {
+    color: #fc6b34;
+}
+#lista_eventos {
+    /*
+    margin-right: 30%;
+    float: center;
+    display: flex;*/
+    width: 75%;
+    float: right;
+    
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.evento {
+    width: 30%;
+    float: left;
+   
+    text-align: center;
+    
+}
+
+.icono_evento {
+    width: 100%;
+    height: 18vw;
+}
+
+.evento img{
+    width: 50%;
+    padding: 5%;
+    margin: 10%;
+    
+}
+
+
+.evento img:hover {
+    width: 55%;
+    transition: all 0.4s ease 0s;
+}
+
+
+.evento span{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Arial", Helvetica, sans-serif;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: black;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    border-top: #fc6b34 1px solid;
+    background-color: #fc6b34;
+    color: white;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    display: inline-block;
+    float: none;
+}
+
+
+/*
+EVENTO.HTML
+*/
+
+.info  {
+    width: 75%;
+    float: left;
+    padding: 0%;
+}
+
+.informacion_evento {
+    width: 45%;
+    margin: 0%;
+    padding: 2%;
+    float: left;
+}
+
+.informacion_evento h1 {
+    font-size: 300%;
+}
+
+.informacion_evento h5 {
+    font-size: 130%;
+}
+
+.fotos_evento {
+    width: 45%;
+    padding: 2%;
+    margin: 0%;
+    float: left;
+}
+
+#logo_evento {
+    width: 80%;
+    float: left;
+}
+
+.imagen_evento {
+    width: 80%;
+}
+
+.social_button {
+    width: 10%;
+}
+
+
+/*
+    PRACTICA 2
+*/
+
+.boton_comentarios {
+    background-color: #fc6b34;
+    outline: none;
+    font-weight: bold;
+    width: 3%;
+    float: right;
+}
+
+.boton_comentarios:hover {
+    background-color: #b33909;
+    transition: all 0.4s ease 0s;
+}
+
+.boton_comentarios img {
+    width: 100%;
+    filter:invert(100%);
+}
+
+.sidenav {
+    height: 100%;
+    color: white;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: black;
+    overflow-x: hidden; 
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    margin-right: 50px;
+    filter: invert(100%);
+}
+
+#comentarios_ {
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    font-weight: bolder;
+}
+
+.lista_comentarios{
+    overflow-y:auto;
+    max-height: 70vh;
+
+}
+
+.comentario {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 80%;
+    margin: 3%;
+    margin-left: 10%;
+    margin-bottom: 3em;
+}
+.texto_comentario {
+    text-align: left;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #777777;
+    border-radius: 5px;
+}
+
+.comentario h4{
+    display:inline-block;
+}
+
+.btn_comentario {
+    color: black;
+    filter: invert(100%);
+    text-decoration: none;
+    float: right;
+    margin-left: 1em;
+
+    font-size: 1.5vh;
+}
+
+.comentario_editado {
+    float: left;
+    margin-right: 5%;
+    font-style: italic;
+    font-size: small;
+}
+
+.fecha_comentario {
+    float: right;
+    margin-right: 5%;
+    font-style: italic;
+    font-size: small;
+}
+.form_comentario {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 100px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.form_comentario label{
+    width: 100%;
+    display: block;
+}
+
+.form_comentario textarea {
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.form_comentario form {
+    /* Centrar el formulario en la página */
+  margin: 0 auto;
+  /* Esquema del formulario */
+  padding: 1em;
+}
+
+
+#login_div {
+    float: right;
+    width: 40%;
+    margin-right: 30%;
+    margin-top: 2em;
+    text-align: center;
+    border: 3px solid #fc6b34;
+    border-radius: 50px;
+    text-emphasis: none;
+    font-weight: bold;
+}
+
+#login_div h1{
+    text-transform: capitalize;
+    color: white;
+    border: 4px solid #fc6b34;
+    border-radius: 5px;
+    background-color: #fc6b34;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#login_div input[type=text], #login_div input[type=password], #login_div input[type=email] {
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 4px solid #fc6b34;
+    border-radius: 5px; 
+    background-color: transparent;
+}
+
+#msg_adv {
+    text-align: center;
+    color: white;
+    border: 4px solid #f3a687;
+    border-radius: 5px;
+    background-color: #f3a687;
+    width: 40%;
+    margin-left: 30%;
+
+}
+
+#selected {
+    border: 4px solid #fc6b34;
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 1em;
+    display: block;
+}
+
+.configuraciones {
+    margin-top: 1em;
+    display: block;
+}
+
+#contenedor_configuracion {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#contenedor_configuracion form{
+    float: right;
+}
+
+.item_contenedor_configuracion {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #fc6b34;
+    border-radius: 0.2em;
+}
+
+.editar_comentario{
+    transition: 0.5s;
+    display: none;
+}
+
+
+
+#contenedor_comentarios {
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 1em;
+}
+
+.conf_comentario{
+    text-align: left;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 80%;
+    margin: 3%;
+    margin-left: 10%;
+    margin-bottom: 3em;
+}
+.conf_comentario a{
+    float: right;
+    color: #fc6b34;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.conf_comentario h4{
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.conf_comentario form{
+    padding: 1em;
+}
+
+.conf_comentario p{
+    display: block;
+    font-style: italic;
+    font-size: small;
+}
+
+.conf_comentario form textarea{
+    display: block;
+    margin: 1em;
+    width: 80%;
+}
+
+.evento_gestor{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+.evento_gestor form textarea{
+    width: 100%;
+    height: 40vh;
+}
+
+#boton_evento_gestor{
+    display: inline-block;
+    margin-left: 40%;
+    width: 20%;
+    margin-bottom: 3em;
+}
+
+.foto_editar_evento{
+    display: inline-block;
+    width: 7em;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.imagenes_editar_evento {
+    max-width: 100%;
+}
+
+.eliminar_foto{
+    display: inline;
+}
+
+#boton_eliminar_evento{
+    width: 100%;
+}
+
+#etiquetas_gestor{
+    display: block;
+    width: 100%;
+}
+
+#etiqueta{
+    background-color: #3d3d3d;
+    color: white;
+    margin: 0.2em;
+    padding: 0.2em;
+    border-radius: 0.2em;
+}
+
+/*
+
+******************************************************************************BARRA BUSQUEDA**********************************************
+
+*/
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .openBtn {
+    background: #f1f1f1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .openBtn:hover {
+    background: #bbb;
+  }
+  
+  .overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 3%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .overlay .closebtn:hover {
+    color: #ccc;
+  }
+  
+  .overlay input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+  }
+
+  .overlay input[type=text]:hover {
+    background: #f1f1f1;
+  }
+
+  .overlay a {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+    border: 1px solid #e7e7e7;
+  }
+
+  .overlay a:hover {
+    background: #8d8d8d;
+  }
+  
+  .overlay button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .overlay button:hover {
+    background: #bbb;
+  }
+
+
+
+
+

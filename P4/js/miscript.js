@@ -8,6 +8,10 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "0";
   } 
 
+  function alerta(){
+    alert("ESTO ES UNA ALERTA")
+  }
+
   function openEditar(id) {
     var nombre = "editar_comentario" + id;
     console.log(nombre);

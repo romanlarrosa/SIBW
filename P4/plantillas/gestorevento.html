@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block barra_lateral %}
+
+<aside class="barra_lateral">        
+    <h2>CONFIGURACION</h2>
+    <a href="configuracion.php" class="configuraciones" {% if act=="misDatos" %} id="selected"  {% endif %}>
+        MIS DATOS
+    </a>
+    {% if usuario['tipo'] == "SUPER" %}
+    <a href="configuracion.php?act=permisos" class="configuraciones" {% if act=="permisos" %} id="selected"  {% endif %}>
+        PERMISOS
+    </a>
+    {% endif %}
+
+    {% if usuario['tipo'] == "SUPER" or usuario['tipo'] == "MOD" %}
+    <a href="configuracion.php?act=comentarios" class="configuraciones" {% if act=="comentarios" %} id="selected"  {% endif %}>
+        COMENTARIOS
+    </a>
+    {% endif %}
+
+    {% if usuario['tipo'] == "SUPER" or usuario['tipo'] == "GESTOR" %}
+    <a href="configuracion.php?act=gestoreventos" class="configuraciones" {% if act=="gestoreventos" %} id="selected"  {% endif %}>
+        EVENTOS
+    </a>
+    {% endif %}
+</aside>
+
+{% endblock %}
+
+{% block contenido %}
+
+{% if msg %}
+<div id="msg_adv">
+        {{ msg }}
+</div>
+{% endif %}
+
+    <div class="evento_gestor">
+        {% if evento %}
+            <h2>{{ evento['nombre'] }}</h2>
+        {% else %}
+            <h2>Nuevo evento</h2>
+        {% endif %}
+
+        <form action="editarevento.php?{% if evento %}idEv={{evento['evento']}}{% endif %}" method="POST" enctype="multipart/form-data">
+
+            <input type="text" placeholder="Nombre evento..." name="nombre" required {% if evento %}value="{{ evento['nombre'] }}"{% endif %}><br>
+
+            <br>Selecciona un icono nuevo<br>
+            <input type="file" name="fileToUpload"  {% if not evento is defined %}required{% endif %}><br><br>
+            <textarea name="contenido" placeholder="Escribe el comentario..." required>{% if evento %}{{evento['contenido']}}{% endif %}</textarea>
+            <br><br>
+            <input type="text" id="etiquetas_gestor" placeholder="Etiquetas, separadas por comas [et1, et2, et3...]" name="etiquetas"
+            {% if etiquetas %}value="{% for etiqueta in etiquetas %}{{etiqueta['etiqueta']}}, {% endfor %}"{% endif %}>
+            <br>
+            <input type="submit" id="boton_evento_gestor" value="Enviar">
+        </form>
+
+        {% for foto in fotos %}
+        <div class="foto_editar_evento">
+            <a href="eliminarfoto.php?id={{ foto['foto'] }}&idEv={{evento['evento']}}"" class="eliminar_foto">&times;</a>
+            <img class="imagenes_editar_evento" src="{{ foto['direccion'] }}">
+        </div>
+        {% endfor %}
+
+        {% if evento %}
+        <br><form action="subirfotos.php?{% if evento %}idEv={{evento['evento']}}{% endif %}" method="post" enctype="multipart/form-data">
+            <br>Selecciona las imagenes a subir <br>
+            <input type="file" name="files[]" multiple ><br>
+            <input type="submit" name="submit" value="Subir">
+        </form>
+        {% else %}
+            Añade la información del evento antes de subir las fotos
+        {% endif %}
+        
+
+    </div>
+
+
+
+
+{% endblock %}
