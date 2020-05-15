@@ -161,9 +161,5 @@ function cargarEventos(data) {
 
     divHTML.innerHTML += code;
   }
-        //A cada comentario
-        //for (var i =0; i < result.length; i++){
-        //  console.log(result[i]);
-        //}
         
 }

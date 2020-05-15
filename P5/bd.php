@@ -365,7 +365,7 @@
     $mysqli = conectar();
     $busqueda = mysqli_real_escape_string($mysqli, $query);
     //Realizamos la consulta para ver eventos
-    $sql = "HOLA";
+    $sql = "";
     if($publicados){
       $sql = "SELECT * FROM EVENTO WHERE publicado=true and (LOWER(nombre) LIKE LOWER('%".$busqueda."%') OR LOWER(contenido) LIKE LOWER('%".$busqueda."%'))";
     }
