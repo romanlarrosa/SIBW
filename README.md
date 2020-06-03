@@ -1,6 +1,6 @@
 # SIBW
 
-Aqui se colgarán las práctiacs de la asignatura de SIBW para mantener un histórico y tener un backup
+Aqui se colgarán las prácticas de la asignatura de SIBW para mantener un histórico y tener un backup
 ___
 
 ## P1
@@ -15,7 +15,7 @@ Los tres archivos html se corresponden con tres páginas del sitio web a desarro
 ---
 
 ## P2
-Añadida la opción de dejar comentarios en el `html` de **evento**, mediante una pestaña desplegable implementada con `javascript`. Sin embargo esto no representa una funcionalidad real ya que lo único que se realiza es incluir el comentario en el `html` mediante `javascript`. 
+Añadida la opción de dejar comentarios en el `html` de **evento**, mediante una pestaña desplegable implementada con `javascript`. Sin embargo, esto no representa una funcionalidad real ya que lo único que se realiza es incluir el comentario en el `html` mediante `javascript`. 
 Además, también mediante `javascript`, se realiza una censura mientras el usuario escribe el comentario para intercambiar ciertas palabras por un número equivalente a su longitud de asteríscos
 
 > `Ej: censura -> *******`
